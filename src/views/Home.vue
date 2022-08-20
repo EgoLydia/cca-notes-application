@@ -1,14 +1,14 @@
 <template>
-  <single-note></single-note>
+  <div>
+    <SingleNote v-for="(note, index) in notes" :key="index" :note="note" />
+  </div>
 </template>
 
-<script>
+<script setup>
 import SingleNote from '@/components/SingleNote.vue'
+import { computed } from '@vue/runtime-core'
+import { useStore } from 'vuex'
 
-export default {
-  name: 'Home',
-  components: {
-    SingleNote
-  }
-}
+const store = useStore()
+const notes = computed(()=>store.state.notes)
 </script>

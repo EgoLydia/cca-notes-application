@@ -6,6 +6,11 @@ const routes = [
     name: 'Home',
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
+  {
+    path: '/note-editor',
+    name: 'Note-Editor',
+    component: () => import("../views/NoteEditor.vue"),
+  },
 ]
 
 const router = createRouter({
