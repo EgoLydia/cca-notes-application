@@ -1,20 +1,20 @@
 <template>
   <div>
-    <form>
+    <form @submit="submitForm">
         <label>Firstname:</label><br>
-        <input v-model="text" required /><br>
+        <input v-model="firstname" required /><br>
 
         <label>Lastname:</label><br>
-        <input v-model="text" required /><br>
+        <input v-model="lastname" required /><br>
 
         <label>Email:</label><br>
         <input v-model="email" required /><br>
 
         <label>Password:</label><br>
-        <input v-model="password" required /><br>
+        <input v-model="password" type="password" :class="[submitForm ? 'good' : 'bad']" required /><br>
 
         <label>Confirm Password:</label><br>
-        <input v-model="password" required /><br>
+        <input v-model="confirmPassword" type="password" required /><br>
 
         <button class="btn" type="submit">Sign Up</button>
     </form>
@@ -31,13 +31,20 @@ export default {
         lastname: '',
         email: '',
         password: '',
+        confirmPassword: '',
     }
   },
 
-  methods: {
-    
+  computed: {
+    submitForm() {
+      if(this.password.length > 2 && this.password.length < 10){
+        return true
+      } else {
+        return false
+      }
+    }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -67,8 +74,23 @@ export default {
         margin-top: 20px;
         padding: 8px;
         border: none;
-        
         background-color: black;
         color: #aaa;
+    }
+
+    .btn:hover {
+        margin-top: 20px;
+        padding: 8px;
+        border: none;
+        background-color: rgb(97, 97, 97);
+        color: #aaa;
+    }
+
+    .good {
+    border: 4px solid greenyellow;
+}
+
+    .bad {
+        border: 1px solid red;
     }
 </style>
