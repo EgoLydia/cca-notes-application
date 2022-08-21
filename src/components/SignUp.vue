@@ -11,7 +11,7 @@
         <input v-model="email" required /><br>
 
         <label>Password:</label><br>
-        <input v-model="password" type="password" :class="[submitForm ? 'good' : 'bad']" required /><br>
+        <input v-model="password" type="password" :class="[inputBorder ? 'good' : 'bad']" required /><br>
 
         <label>Confirm Password:</label><br>
         <input v-model="confirmPassword" type="password" required /><br>
@@ -36,7 +36,7 @@ export default {
   },
 
   computed: {
-    submitForm() {
+    inputBorder() {
       if(this.password.length > 2 && this.password.length < 10){
         return true
       } else {
