@@ -1,6 +1,6 @@
 <template>
   <div class="note-widget" @click="goToNotePad" :style="widgetColor">
-    <h2 class="title">{{note.title.substring(0,20)}}</h2>
+    <h2 class="title">{{note.title.substring(0,15)}}</h2>
     <p>{{note.content}}</p>
     <div class="date">{{note.date}}</div>
   </div>
@@ -53,12 +53,14 @@ export default {
 
 <style scoped>
 .note-widget{
-  margin:10px;
   padding:0.8rem;
   font-size:0.6rem;
-  width:50%;
   border-radius:10px;
   box-shadow: 0 0 2px #ccc;
+  height:150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .note-widget:hover{
@@ -68,7 +70,7 @@ export default {
 
 .note-widget >p{
   width:100%;
-  height:70px;
+  height:60%;
   overflow: hidden;
 }
 </style>
