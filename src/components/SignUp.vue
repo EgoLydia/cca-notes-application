@@ -1,11 +1,8 @@
 <template>
   <div>
     <form @submit="submitForm">
-        <label>Firstname:</label><br>
-        <input v-model="firstname" required /><br>
-
-        <label>Lastname:</label><br>
-        <input v-model="lastname" required /><br>
+        <label>Username:</label><br>
+        <input v-model="username" required /><br>
 
         <label>Email:</label><br>
         <input v-model="email" required /><br>
@@ -27,8 +24,7 @@ export default {
 
   data() {
     return {
-        firstname: '',
-        lastname: '',
+        username: '',
         email: '',
         password: '',
         confirmPassword: '',
