@@ -8,6 +8,9 @@
         libero pariatur. Placeat asperiores aliquid nesciunt.
       </p>
       <button><router-link to="/signup">Sign up now</router-link></button>
+      <div>
+        <img src="@/assets/Checklist.jpg" alt="checklist" />
+      </div>
     </section>
     <section>
       <h1>Create free notes & collaborate with your team</h1>
@@ -16,6 +19,7 @@
         enim soluta quas. Consequatur dolorum aliquid vitae neque sapiente
         libero pariatur. Placeat asperiores aliquid nesciunt.
       </p>
+      <img src="@/assets/team.jpg" alt="team collaboration" />
     </section>
     <section>
       <h1>Comprehensive underneath, simple on the surface</h1>
@@ -59,6 +63,9 @@ export default {
 </script>
 
 <style scoped>
+img {
+  max-width: 500px;
+}
 .info {
   display: flex;
   margin-top: 16px;
