@@ -1,60 +1,14 @@
 <template>
-  <div class="container">
-    <section>
-      <h1>The simplest way to keep notes</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde doloribus
-        enim soluta quas. Consequatur dolorum aliquid vitae neque sapiente
-        libero pariatur. Placeat asperiores aliquid nesciunt.
-      </p>
-      <button><router-link to="/signup">Sign up now</router-link></button>
-    </section>
-    <section>
-      <h1>Create free notes & collaborate with your team</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde doloribus
-        enim soluta quas. Consequatur dolorum aliquid vitae neque sapiente
-        libero pariatur. Placeat asperiores aliquid nesciunt.
-      </p>
-    </section>
-    <section>
-      <h1>Comprehensive underneath, simple on the surface</h1>
-      <div class="info">
-        <div>
-          <h3>Use it everywhere</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            doloribus enim soluta quas. Consequatur dolorum aliquid vitae neque
-            sapiente
-          </p>
-        </div>
-        <div>
-          <h3>Stay organised</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            doloribus enim soluta quas. Consequatur dolorum aliquid vitae neque
-            sapiente
-          </p>
-        </div>
-        <div>
-          <h3>Work together</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            doloribus enim soluta quas. Consequatur dolorum aliquid vitae neque
-            sapiente
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
-  <footer>
-    <p>Created by CCA Frontend Cohort</p>
-  </footer>
+  <landing-page></landing-page>
 </template>
 
 <script>
+import LandingPage from "../components/LandingPage.vue";
 export default {
   name: "Home",
+  components: {
+    LandingPage,
+  },
 };
 </script>
 
