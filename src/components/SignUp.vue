@@ -41,11 +41,11 @@ export default {
     }
   },
 
-  methods: {
-    submitForm() {
-        this.$router.push(this.username + this.email + this.password)
-      }
-    }
+  // methods: {
+  //   submitForm() {
+  //       this.$router.push(this.username + this.email + this.password)
+  //     }
+  //   }
 }
 
 </script>
