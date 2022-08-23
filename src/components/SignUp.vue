@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "SignupComponent",
+  name: "Signup",
 
   data() {
     return {
@@ -39,8 +39,15 @@ export default {
         return false
       }
     }
-  }
+  },
+
+  methods: {
+    submitForm() {
+        this.$router.push(this.username + this.email + this.password)
+      }
+    }
 }
+
 </script>
 
 <style scoped>
@@ -70,8 +77,9 @@ export default {
         margin-top: 20px;
         padding: 8px;
         border: none;
-        background-color: black;
-        color: #aaa;
+        background-color: #2f7254;
+        color: rgb(231, 231, 231);
+        border-radius: 5px;
     }
 
     .btn:hover {
@@ -87,6 +95,6 @@ export default {
 }
 
     .bad {
-        border: 1px solid red;
+        border: 1px solid rgb(254, 185, 185);
     }
 </style>
