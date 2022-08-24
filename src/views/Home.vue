@@ -7,15 +7,10 @@ import LandingPage from "../components/LandingPage.vue";
 export default {
   name: "Home",
   components: {
-<<<<<<< HEAD
-    SingleNote,
+    LandingPage
   }
-}
-=======
-    LandingPage,
-  },
 };
->>>>>>> 042b51caf2073ff30a693dc2a6d55b48d67b22e2
+
 </script>
 
 <style scoped>

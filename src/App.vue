@@ -1,10 +1,5 @@
 <template>
   <div id="nav">
-<<<<<<< HEAD
-    <router-link to="/">Home</router-link> |
-    <router-link to="/SignupPage">Sign Up</router-link> |
-    <router-link to="/NoteComponetPage">Notes</router-link>
-=======
     <nav>
       <div class="logo">
         <p>CCA Frontend Cohort Note App</p>
@@ -12,11 +7,10 @@
       <div class="links">
         <router-link to="/">Home</router-link>
         <router-link to="/notes">Notes</router-link>
-        <router-link to="/signup">Sign Up</router-link>
+        <router-link to="/SignupPage">Sign Up</router-link>
         <router-link to="/login">Login</router-link>
       </div>
     </nav>
->>>>>>> 042b51caf2073ff30a693dc2a6d55b48d67b22e2
   </div>
   <router-view />
 </template>
