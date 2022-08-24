@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import SingleNote from '@/components/SingleNote.vue'
+import SingleNote from "@/components/SingleNote.vue";
 
 export default {
-  name: 'NoteList',
+  name: "NoteList",
   components: {
-    SingleNote
-  }
+    SingleNote,
+  },
 };
 </script>
 
