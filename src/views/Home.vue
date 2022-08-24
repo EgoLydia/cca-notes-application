@@ -1,14 +1,53 @@
 <template>
-  <single-note></single-note>
+  <landing-page></landing-page>
 </template>
 
 <script>
-import SingleNote from '@/components/SingleNote.vue'
-
+import LandingPage from "../components/LandingPage.vue";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
+<<<<<<< HEAD
     SingleNote,
   }
 }
+=======
+    LandingPage,
+  },
+};
+>>>>>>> 042b51caf2073ff30a693dc2a6d55b48d67b22e2
 </script>
+
+<style scoped>
+.info {
+  display: flex;
+  margin-top: 16px;
+  gap: 25px;
+}
+h1 {
+  font-size: 36px;
+  width: 500px;
+  margin: 0 auto;
+}
+section {
+  margin-bottom: 64px;
+}
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+button {
+  padding: 15px;
+  background-color: #e4fff3;
+  border-radius: 5px;
+  border: none;
+}
+footer {
+  background-color: #e4fff3;
+  padding: 20px;
+}
+</style>

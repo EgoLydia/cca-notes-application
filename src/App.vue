@@ -1,13 +1,31 @@
 <template>
   <div id="nav">
+<<<<<<< HEAD
     <router-link to="/">Home</router-link> |
     <router-link to="/SignupPage">Sign Up</router-link> |
     <router-link to="/NoteComponetPage">Notes</router-link>
+=======
+    <nav>
+      <div class="logo">
+        <p>CCA Frontend Cohort Note App</p>
+      </div>
+      <div class="links">
+        <router-link to="/">Home</router-link>
+        <router-link to="/notes">Notes</router-link>
+        <router-link to="/signup">Sign Up</router-link>
+        <router-link to="/login">Login</router-link>
+      </div>
+    </nav>
+>>>>>>> 042b51caf2073ff30a693dc2a6d55b48d67b22e2
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
+body {
+  padding: 0;
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,16 +33,29 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
+.logo {
   font-weight: bold;
   color: #2c3e50;
 }
-
+img {
+  max-width: 30px;
+}
+.links a {
+  margin-right: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #2c3e50;
+}
+#nav {
+  padding: 30px;
+}
+nav {
+  max-width: 1120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
 #nav a.router-link-exact-active {
   color: #42b983;
 }
