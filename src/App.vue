@@ -7,7 +7,7 @@
       <div class="links">
         <router-link to="/">Home</router-link>
         <router-link to="/notes">Notes</router-link>
-        <router-link to="/signup">Sign Up</router-link>
+        <router-link to="/SignupPage">Sign Up</router-link>
         <router-link to="/login">Login</router-link>
       </div>
     </nav>

@@ -6,6 +6,18 @@ const routes = [
     name: 'Home',
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
+
+  {
+    path: '/SignupPage',
+    name: 'SignupPage',
+    component: () => import(/* webpackChunkName: "about" */ '../views/SignupPage.vue')
+  },
+
+  // {
+  //   path: '/NoteComponentPage',
+  //   name: 'NoteComponentPage',
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/NoteComponentPage.vue')
+  // },
 ]
 
 const router = createRouter({
