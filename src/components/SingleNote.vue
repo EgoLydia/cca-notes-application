@@ -7,8 +7,9 @@
 </template>
 
 <script>
+import {colors} from "../colors"
 import { computed } from '@vue/runtime-core';
-import { useRouter} from 'vue-router'
+import { useRouter} from 'vue-router';
 export default {
   props: {
     note:{
@@ -17,8 +18,7 @@ export default {
   },
   setup(props) {
     const router = useRouter();
-    
-    
+    const colorList = colors;
     const goToNotePad = ()=>{
       router.push({
         name:"Note-Editor",
@@ -27,15 +27,13 @@ export default {
         }
       })
     }
-
-    const backgroundColors = ['#DC828F', '#F7CE76', '#E8D6CF', '#8C7386', '#9C9359']
-    const randomColor = ()=>{
-      const randIdx = Math.floor(Math.random() * backgroundColors.length + 1);
-      return backgroundColors[randIdx]
-    }
+    const randomColor = computed(()=>{
+      const randIdx = Math.floor(Math.random() * colorList.length + 1);
+      return colorList[randIdx]
+    });
     const widgetColor = computed(()=>{
       return {
-        'backgroundColor': randomColor()
+        'backgroundColor': randomColor.value
       }
     })
 
@@ -64,7 +62,7 @@ export default {
 }
 
 .note-widget:hover{
-
+  transform: scale(1.05);
   cursor: pointer;
 }
 
