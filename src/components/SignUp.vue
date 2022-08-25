@@ -12,13 +12,15 @@
           v-model="password"
           type="password"
           :class="[inputBorder ? 'good' : 'bad']"
-          required
-    /><br />
+          required/>
+        <br />
 
-    <label>Confirm Password:</label><br />
-    <input v-model="confirmPassword" type="password" required /><br />
+        <label>Confirm Password:</label><br />
+        <input v-model="confirmPassword" type="password" required /><br />
 
         <button class="btn" type="submit">Sign Up</button>
+
+        <p>Already have an account?<router-link to="/login"> Log in</router-link></p>
     </form>
   </div>
 </template>
