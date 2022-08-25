@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit="submitForm">
+    <form @submit.prevent="submitForm">
         <label>Username:</label><br>
         <input v-model="username" required /><br>
 
@@ -13,7 +13,9 @@
         <label>Confirm Password:</label><br>
         <input v-model="confirmPassword" type="password" required /><br>
 
-        <button v-on:click="signUp" class="btn" type="submit">Sign Up</button>
+        <button v-on:click="submitForm" class="btn" type="submit">Sign Up</button>
+
+        <p>Already have an account?</p>
     </form>
   </div>
 </template>
@@ -24,7 +26,6 @@ import axios from 'axios'
 
 export default {
   name: "Signup",
-
   data() {
     return {
         username: '',
@@ -44,23 +45,18 @@ export default {
     }
   },
 
-  // mounted() {
-  //   console.log(axios)
-  // },
-
   methods: {
-    async signUp() {
-       let result = await axios.post("https://ccsanotes-api.azurewebsites.net/users/byUser", {
-        username:this.username,
-        email:this.email,
-        password:this.password,
-      });
+    async submitForm() {
+      // console.log(data)
+      // alert ('Submitted')
 
-      // console.warn(result);
-      // if(result.status==201) {
-      //   alert('signed up');
-      // }
-      console.log(result)
+      let response = await axios.post('', {
+        username: this.username,
+        email: this.email,
+        password: this.password,
+        confirmPassword: this.confirmPassword,
+      });
+      console.log(response)
     }
   }
 }
@@ -74,6 +70,11 @@ export default {
         padding: 20px;
         background-color: #e4fff3;
         border-radius: 30px;
+    }
+
+    p {
+        font-size: 14px;
+        color: rgb(140, 140, 140);
     }
 
     label {
@@ -108,7 +109,7 @@ export default {
     }
 
     .good {
-    border: 4px solid greenyellow;
+        border: 4px solid greenyellow;
 }
 
     .bad {
