@@ -13,12 +13,13 @@
         <label>Confirm Password:</label><br>
         <input v-model="confirmPassword" type="password" required /><br>
 
-        <button class="btn" type="submit">Sign Up</button>
+        <button v-on:click="signUp" class="btn" type="submit">Sign Up</button>
     </form>
   </div>
 </template>
 
 <script>
+// import axios from 'axios'
 export default {
   name: "Signup",
 
@@ -41,11 +42,13 @@ export default {
     }
   },
 
-  // methods: {
-  //   submitForm() {
-  //       this.$router.push(this.username + this.email + this.password)
-  //     }
-  //   }
+  methods: {
+    signUp(e) {
+      console.warn(this.username, this.email, this.password, this.confirmPassword)
+      e.preventDefault()
+        
+      }
+    }
 }
 
 </script>
