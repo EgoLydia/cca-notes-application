@@ -64,16 +64,14 @@ export default {
 
 <style scoped>
 img {
-  max-width: 500px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 .info {
-  display: flex;
   margin-top: 16px;
-  gap: 25px;
 }
 h1 {
-  font-size: 36px;
-  width: 500px;
+  font-size: 26px;
   margin: 0 auto;
 }
 section {
@@ -82,6 +80,7 @@ section {
 .container {
   max-width: 1120px;
   margin: 0 auto;
+  margin-top: 100px;
 }
 a {
   text-decoration: none;
@@ -93,8 +92,30 @@ button {
   border-radius: 5px;
   border: none;
 }
+p {
+  padding: 10px;
+}
 footer {
   background-color: #e4fff3;
   padding: 20px;
+}
+@media (min-width: 768px) {
+  p {
+    padding: 0px;
+  }
+  .info {
+    display: flex;
+    gap: 20px;
+  }
+  h1 {
+    font-size: 36px;
+    width: 500px;
+  }
+  img {
+    max-width: 500px;
+  }
+  .container {
+    margin-top: 150px;
+  }
 }
 </style>
