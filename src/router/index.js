@@ -10,7 +10,18 @@ const routes = [
     path: '/note-list',
     name: 'Note-List',
     component: () => import(/* webpackChunkName: "about" */ '../views/NoteList.vue')
-  }
+  },
+  {
+    path: '/SignupPage',
+    name: 'SignupPage',
+    component: () => import(/* webpackChunkName: "about" */ '../views/SignupPage.vue')
+  },
+
+  // {
+  //   path: '/NoteComponentPage',
+  //   name: 'NoteComponentPage',
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/NoteComponentPage.vue')
+  // },
 ]
 
 const router = createRouter({
