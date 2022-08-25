@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <nav>
+    <nav-menu>
       <div class="logo">
         <p>CCA Frontend Cohort Note App</p>
       </div>
@@ -10,7 +10,7 @@
         <router-link to="/SignupPage">Sign Up</router-link>
         <router-link to="/login">Login</router-link>
       </div>
-    </nav>
+    </nav-menu>
   </div>
   <router-view />
 </template>
