@@ -1,59 +1,36 @@
 <template>
-  <div id="nav">
-    <nav>
-      <div class="logo">
-        <p>CCA Frontend Cohort Note App</p>
-      </div>
-      <div class="links">
-        <router-link to="/">Home</router-link>
-        <router-link to="/note-list">Notes</router-link>
-        <router-link to="/SignupPage">Sign Up</router-link>
-        <router-link to="/login">Login</router-link>
-      </div>
-    </nav>
+  <div>
+    <nav-menu></nav-menu>
+    <router-view></router-view>
   </div>
-  <router-view />
 </template>
 
-<script setup>
+<script>
+import NavMenu from "./components/NavMenu.vue";
+export default {
+  components: {
+    NavMenu,
+  },
+};
 </script>
-
 <style>
-*{
-  padding:0;
-  margin:0;
+body,
+html {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /*text-align: center;*/ /*This affects all other components, i suggest it be added to the needed pages insted*/
   color: #2c3e50;
 }
-.logo {
-  font-weight: bold;
-  color: #2c3e50;
+
+#app > div:last-of-type{
+  margin-top:100px;
 }
-img {
-  max-width: 30px;
-}
-.links a {
-  margin-right: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-nav {
-  max-width: 1120px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-}
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+
 </style>
