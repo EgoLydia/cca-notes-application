@@ -10,7 +10,6 @@ export default {
     LandingPage
   }
 };
-
 </script>
 
 <style scoped>
@@ -46,3 +45,4 @@ footer {
   padding: 20px;
 }
 </style>
+

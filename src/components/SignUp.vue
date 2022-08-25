@@ -55,7 +55,7 @@ export default {
 
 <style scoped>
     form {
-        max-width: 600px;
+        max-width: 400px;
         margin: 0 auto;
         padding: 20px;
         background-color: #e4fff3;

@@ -13,11 +13,16 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/SignupPage.vue')
   },
 
-  // {
-  //   path: '/NoteComponentPage',
-  //   name: 'NoteComponentPage',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/NoteComponentPage.vue')
-  // },
+  {
+    path: '/note-list',
+    name: 'Note-List',
+    component: () => import(/* webpackChunkName: "about" */ '../views/NoteList.vue')
+  },
+  {
+    path: '/note-editor',
+    name: 'Note-Editor',
+    component: () => import(/* webpackChunkName: "about" */"../views/NoteEditor.vue"),
+  },
 ]
 
 const router = createRouter({
