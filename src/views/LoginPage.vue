@@ -1,5 +1,5 @@
 <template>
-    <log-in></log-in>
+  <Login></Login>
 </template>
 
 <script>

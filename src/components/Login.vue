@@ -2,7 +2,7 @@
   <div>
     <form @submit="submitForm">
         <label>Email:</label><br>
-        <input v-model="email" required /><br>
+        <input v-model="email" type="email" required /><br>
 
         <label>Password:</label><br>
         <input v-model="password" type="password" :class="[inputBorder ? 'good' : 'bad']" required /><br>
@@ -19,7 +19,7 @@ export default {
   data() {
     return {
         email: '',
-        password: '',
+        password: ''
     }
   },
 
