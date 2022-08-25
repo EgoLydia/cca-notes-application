@@ -19,7 +19,9 @@
 </template>
 
 <script>
-// import axios from 'axios'
+// import { response } from 'express'
+import axios from 'axios'
+
 export default {
   name: "Signup",
 
@@ -42,13 +44,25 @@ export default {
     }
   },
 
+  // mounted() {
+  //   console.log(axios)
+  // },
+
   methods: {
-    signUp(e) {
-      console.warn(this.username, this.email, this.password, this.confirmPassword)
-      e.preventDefault()
-        
-      }
+    async signUp() {
+       let result = await axios.post("https://ccsanotes-api.azurewebsites.net/users/byUser", {
+        username:this.username,
+        email:this.email,
+        password:this.password,
+      });
+
+      // console.warn(result);
+      // if(result.status==201) {
+      //   alert('signed up');
+      // }
+      console.log(result)
     }
+  }
 }
 
 </script>
