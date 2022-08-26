@@ -19,7 +19,7 @@ body {
 .the-header {
   display: flex;
   justify-content: center;
-  background: #42b983;
+  background: #e4fff3;
   position: fixed;
   width: 100%;
 }

@@ -33,7 +33,7 @@ body {
   position: fixed;
   bottom: 0;
 
-  background: #42b983;
+  background: #e4fff3;
   width: 100%;
 }
 .separator {
