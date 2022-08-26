@@ -4,7 +4,7 @@
       ><img src="../assets/icons8-medium-icons-66.png" alt="tile"
     /></a>
     <a @click="AddNote()" class="separator" href="">
-      <img src="../assets/icons8-plus-150.png" alt="add-note-button" />
+      <img src="../assets/icons8-plus-sign-66.png" alt="add-note-button" />
     </a>
     <a class="separator" href=""
       ><img src="../assets/icons8-person-60.png" alt="person-avatar" />
@@ -29,7 +29,7 @@ body {
   display: flex;
   justify-content: center;
   border-top: 1px solid gray;
-  padding-top: 20px;
+  padding-top: 15px;
   position: fixed;
   bottom: 0;
 
@@ -45,7 +45,7 @@ body {
   .footer {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 15px;
     border-top: none;
     position: fixed;
     bottom: 0;

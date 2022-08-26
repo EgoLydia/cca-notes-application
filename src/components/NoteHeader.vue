@@ -4,7 +4,7 @@
 
     <img
       class="separator"
-      src="../assets/icons8-person-60.png"
+      src="../assets/icons8-person-80.png"
       alt="user_image"
     />
   </div>
@@ -13,15 +13,12 @@
 <script setup></script>
 
 <style scoped>
-body {
-  position: relative;
-}
 .the-header {
   display: flex;
   justify-content: center;
   background: #e4fff3;
-  position: fixed;
   width: 100%;
+  margin: 30px 0;
 }
 
 .separator {
