@@ -34,12 +34,16 @@ const fetchNotes = ()=>{
     padding:1.5rem;
     display: grid;
     gap:1rem;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 0.25fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: space-evenly;
+    
 }
 
 @media (min-width:630px) {
     .note-list{
         padding:2rem;
+        justify-content: start;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
     }
 }
 </style>
