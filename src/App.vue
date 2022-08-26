@@ -25,7 +25,7 @@ html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*text-align: center;*/ /*This affects all other components, i suggest it be added to the needed pages insted*/
+  /* text-align: center; */
   color: #2c3e50;
 }
 
