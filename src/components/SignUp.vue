@@ -1,33 +1,50 @@
 <template>
   <div>
-    <form @submit="submitForm">
+    <form @submit.prevent="submitForm">
         <label>Username:</label><br>
-        <input v-model="username" required /><br>
+        <input 
+          v-model="username" 
+          required
+        />
+        <br>
 
         <label>Email:</label><br />
-        <input v-model="email" required /><br />
+        <input 
+          v-model="email" 
+          required 
+        />
+        <br />
 
         <label>Password:</label><br />
         <input
           v-model="password"
           type="password"
           :class="[inputBorder ? 'good' : 'bad']"
-          required/>
+          required
+        />
         <br />
 
         <label>Confirm Password:</label><br />
-        <input v-model="confirmPassword" type="password" required /><br />
+        <input 
+          v-model="confirmPassword" 
+          type="password" required 
+        />
+        <br />
 
         <button class="btn" type="submit">Sign Up</button>
 
-        <p>Already have an account?<router-link to="/login"> Log in</router-link></p>
+        <p>Already have an account?
+          <router-link to="/LoginPage"> 
+            Log in
+          </router-link>
+        </p>
     </form>
   </div>
 </template>
 
 <script>
 // import { response } from 'express'
-// import axios from 'axios'
+import axios from 'axios'
 
 export default {
   name: "Signup",
@@ -50,11 +67,32 @@ export default {
     }
   },
 
-  // methods: {
-  //   submitForm() {
-  //       this.$router.push(this.username + this.email + this.password)
-  //     }
-  //   }
+  methods: {
+     submitForm() {
+          // let info = [this.username, 
+          //             this.email, 
+          //             this.password, 
+          //             this.confirmPassword
+          //            ];
+
+          // if(this.password === this.confirmPassword) {
+          //   localStorage.setItem('user-info', info)
+          //   this.$router.push({name: 'Home'})
+          // } else {
+          //   alert('Passwords do not match')
+          //   return
+          // }
+          
+
+        let result = axios.post('https://ccsanotes-api.azurewebsites.net/users/byUser', {
+          username:this.username,
+          email: this.email,
+          password: this.password,
+          confrimPassword: this.confirmPassword
+        })
+        console.warn(result);
+      }
+    },
 }
 
 </script>
