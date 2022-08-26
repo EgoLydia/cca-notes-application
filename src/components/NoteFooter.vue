@@ -1,12 +1,12 @@
 <template>
   <div class="footer">
-    <a class="separator" href=""
+    <a class="separator" href="#"
       ><img src="../assets/icons8-medium-icons-66.png" alt="tile"
     /></a>
-    <a @click="AddNote()" class="separator" href="">
-      <img src="../assets/icons8-plus-sign-66.png" alt="add-note-button" />
+    <a class="separator" href="#">
+      <img src="../assets/icons8-plus-66.png" alt="add-note-button" />
     </a>
-    <a class="separator" href=""
+    <a class="separator" href="#"
       ><img src="../assets/icons8-person-60.png" alt="person-avatar" />
     </a>
   </div>

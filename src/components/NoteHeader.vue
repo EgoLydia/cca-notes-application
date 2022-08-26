@@ -4,7 +4,7 @@
 
     <img
       class="separator"
-      src="../assets/icons8-person-80.png"
+      src="../assets/icons8-person-90.png"
       alt="user_image"
     />
   </div>
@@ -16,9 +16,9 @@
 .the-header {
   display: flex;
   justify-content: center;
-  background: #e4fff3;
+
   width: 100%;
-  margin: 30px 0;
+  margin: 70px 0;
 }
 
 .separator {
