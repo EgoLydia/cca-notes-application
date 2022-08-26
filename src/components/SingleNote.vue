@@ -58,7 +58,7 @@ export default {
   font-size: 0.6rem;
   border-radius: 10px;
   box-shadow: 0 0 2px #ccc;
-  height: 150px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
