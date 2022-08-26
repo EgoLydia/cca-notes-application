@@ -5,12 +5,10 @@
 </template>
 
 <script>
-import NotesCollection from '../components/NotesCollection.vue';
+import NotesCollection from "../components/NotesCollection.vue";
 export default {
-    components: { NotesCollection }
-}
+  components: { NotesCollection },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
