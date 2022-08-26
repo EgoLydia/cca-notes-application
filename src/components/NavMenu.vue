@@ -6,7 +6,7 @@
       </div>
       <div class="links">
         <i @click="openMenu" class="ri-menu-line ham"> </i>
-        <div v-show="isOpen" @click="closeDropdown" class="mobile-nav">
+        <div v-show="isOpen" @click="closeDropdown" class="mobile-links">
           <router-link to="/">Home</router-link>
           <router-link to="/notes">Notes</router-link>
           <router-link to="/SignupPage">Sign Up</router-link>
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style scoped>
-.mobile-nav {
+.mobile-links {
   position: fixed;
   left: 0;
   width: 100%;
