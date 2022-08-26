@@ -62,6 +62,7 @@ export default {
   height:130px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .note-widget:hover{
