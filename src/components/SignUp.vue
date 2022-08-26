@@ -24,12 +24,12 @@
         />
         <br />
 
-        <label>Confirm Password:</label><br />
+        <!-- <label>Confirm Password:</label><br />
         <input 
           v-model="confirmPassword" 
           type="password" required 
         />
-        <br />
+        <br /> -->
 
         <button class="btn" type="submit">Sign Up</button>
 
@@ -68,7 +68,7 @@ export default {
   },
 
   methods: {
-     async submitForm() {
+     
           // let info = [this.username, 
           //             this.email, 
           //             this.password, 
@@ -83,16 +83,18 @@ export default {
           //   return
           // }
           
-
-        let result = await axios.post('https://ccsanotes-api.azurewebsites.net/users/byUser', {
+      async submitForm() {
+        try {
+          let result = await axios.post('https://ccsanotes-api.azurewebsites.net/users', {
           username:this.username,
           email: this.email,
           password: this.password,
-          confrimPassword: this.confirmPassword
-        })
-        console.warn(result);
-      },
-      
+        });
+          return result
+        } catch(error) { 
+            console.log(error)
+          }
+        },
      },
 }
 
