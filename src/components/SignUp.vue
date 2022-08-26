@@ -68,7 +68,7 @@ export default {
   },
 
   methods: {
-     submitForm() {
+     async submitForm() {
           // let info = [this.username, 
           //             this.email, 
           //             this.password, 
@@ -84,15 +84,16 @@ export default {
           // }
           
 
-        let result = axios.post('https://ccsanotes-api.azurewebsites.net/users/byUser', {
+        let result = await axios.post('https://ccsanotes-api.azurewebsites.net/users/byUser', {
           username:this.username,
           email: this.email,
           password: this.password,
           confrimPassword: this.confirmPassword
         })
         console.warn(result);
-      }
-    },
+      },
+      
+     },
 }
 
 </script>
@@ -100,7 +101,7 @@ export default {
 <style scoped>
     form {
         max-width: 600px;
-        margin: 0 auto;
+        margin: 100px auto;
         padding: 20px;
         background-color: #e4fff3;
         border-radius: 30px;
