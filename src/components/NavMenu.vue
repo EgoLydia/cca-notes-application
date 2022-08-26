@@ -5,8 +5,8 @@
         <p>CCA Frontend Cohort Note App</p>
       </div>
       <div class="links">
-        <i @click="openHam" class="ri-menu-line ham"> </i>
-        <div v-show="isOpen" class="mobile-nav">
+        <i @click="openMenu" class="ri-menu-line ham"> </i>
+        <div v-show="isOpen" @click="closeDropdown" class="mobile-links">
           <router-link to="/">Home</router-link>
           <router-link to="/notes">Notes</router-link>
           <router-link to="/SignupPage">Sign Up</router-link>
@@ -31,7 +31,10 @@ export default {
     };
   },
   methods: {
-    openHam() {
+    openMenu() {
+      this.isOpen = !this.isOpen;
+    },
+    closeDropdown() {
       this.isOpen = !this.isOpen;
     },
   },
@@ -39,7 +42,7 @@ export default {
 </script>
 
 <style scoped>
-.mobile-nav {
+.mobile-links {
   position: fixed;
   left: 0;
   width: 100%;

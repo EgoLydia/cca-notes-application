@@ -59,6 +59,7 @@ form {
   background-color: #e4fff3;
   border-radius: 30px;
   padding: 20px;
+  text-align: center;
 }
 
 label {
