@@ -1,8 +1,18 @@
 <template>
-  <div>
-    <nav-menu></nav-menu>
-    <router-view></router-view>
+  <div id="nav">
+    <nav-menu>
+      <div class="logo">
+        <p>CCA Frontend Cohort Note App</p>
+      </div>
+      <div class="links">
+        <router-link to="/">Home</router-link>
+        <router-link to="/notes">Notes</router-link>
+        <router-link to="/SignupPage">Sign Up</router-link>
+        <router-link to="/LoginPage">Login</router-link>
+      </div>
+    </nav-menu>
   </div>
+  <router-view />
 </template>
 
 <script>
@@ -29,8 +39,7 @@ html {
   color: #2c3e50;
 }
 
-#app > div:last-of-type{
-  margin-top:100px;
+#app > div:last-of-type {
+  margin-top: 100px;
 }
-
 </style>
