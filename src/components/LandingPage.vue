@@ -1,59 +1,61 @@
 <template>
-  <div class="container">
-    <section>
-      <h1>The simplest way to keep notes</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde doloribus
-        enim soluta quas. Consequatur dolorum aliquid vitae neque sapiente
-        libero pariatur. Placeat asperiores aliquid nesciunt.
-      </p>
-      <button><router-link to="/SignupPage">Sign up now</router-link></button>
-      <div>
-        <img src="@/assets/Checklist.jpg" alt="checklist" />
-      </div>
-    </section>
-    <section>
-      <h1>Create free notes & collaborate with your team</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde doloribus
-        enim soluta quas. Consequatur dolorum aliquid vitae neque sapiente
-        libero pariatur. Placeat asperiores aliquid nesciunt.
-      </p>
-      <img src="@/assets/team.jpg" alt="team collaboration" />
-    </section>
-    <section>
-      <h1>Comprehensive underneath, simple on the surface</h1>
-      <div class="info">
+  <div>
+    <div class="container">
+      <section>
+        <h1>The simplest way to keep notes</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+          doloribus enim soluta quas. Consequatur dolorum aliquid vitae neque
+          sapiente libero pariatur. Placeat asperiores aliquid nesciunt.
+        </p>
+        <button><router-link to="/SignupPage">Sign up now</router-link></button>
         <div>
-          <h3>Use it everywhere</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            doloribus enim soluta quas. Consequatur dolorum aliquid vitae neque
-            sapiente
-          </p>
+          <img src="@/assets/Checklist.jpg" alt="checklist" />
         </div>
-        <div>
-          <h3>Stay organised</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            doloribus enim soluta quas. Consequatur dolorum aliquid vitae neque
-            sapiente
-          </p>
+      </section>
+      <section>
+        <h1>Create free notes & collaborate with your team</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+          doloribus enim soluta quas. Consequatur dolorum aliquid vitae neque
+          sapiente libero pariatur. Placeat asperiores aliquid nesciunt.
+        </p>
+        <img src="@/assets/team.jpg" alt="team collaboration" />
+      </section>
+      <section>
+        <h1>Comprehensive underneath, simple on the surface</h1>
+        <div class="info">
+          <div>
+            <h3>Use it everywhere</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+              doloribus enim soluta quas. Consequatur dolorum aliquid vitae
+              neque sapiente
+            </p>
+          </div>
+          <div>
+            <h3>Stay organised</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+              doloribus enim soluta quas. Consequatur dolorum aliquid vitae
+              neque sapiente
+            </p>
+          </div>
+          <div>
+            <h3>Work together</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+              doloribus enim soluta quas. Consequatur dolorum aliquid vitae
+              neque sapiente
+            </p>
+          </div>
         </div>
-        <div>
-          <h3>Work together</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            doloribus enim soluta quas. Consequatur dolorum aliquid vitae neque
-            sapiente
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
+    <footer>
+      <p>Created by CCA Frontend Cohort</p>
+    </footer>
   </div>
-  <footer>
-    <p>Created by CCA Frontend Cohort</p>
-  </footer>
 </template>
 
 <script>
@@ -71,16 +73,17 @@ img {
   margin-top: 16px;
 }
 h1 {
-  font-size: 26px;
+  font-size: 23px;
   margin: 0 auto;
 }
 section {
   margin-bottom: 64px;
+  text-align: center;
 }
 .container {
   max-width: 1120px;
   margin: 0 auto;
-  margin-top: 100px;
+  /*margin-top: 100px;*/ /* I changed this and added margin-top for all router-view views*/
 }
 a {
   text-decoration: none;
@@ -98,6 +101,7 @@ p {
 footer {
   background-color: #e4fff3;
   padding: 20px;
+  text-align: center;
 }
 @media (min-width: 768px) {
   p {

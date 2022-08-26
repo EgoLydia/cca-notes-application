@@ -1,19 +1,19 @@
 <template>
-  <note-header></note-header>
-  <single-note></single-note>
-  <note-footer></note-footer>
+  <div>
+    <NoteHeader />
+    <NotesCollection />
+    <NoteFooter />
+  </div>
 </template>
 
 <script>
 import NoteHeader from "@/components/NoteHeader.vue";
-import SingleNote from "@/components/SingleNote.vue";
+import NotesCollection from "../components/NotesCollection.vue";
 import NoteFooter from "@/components/NoteFooter.vue";
-
 export default {
-  name: "NoteList",
   components: {
+    NotesCollection,
     NoteHeader,
-    SingleNote,
     NoteFooter,
   },
 };
