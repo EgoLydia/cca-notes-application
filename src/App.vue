@@ -1,24 +1,25 @@
 <template>
-  <div id="nav">
-    <nav>
-      <div class="logo">
-        <p>CCA Frontend Cohort Note App</p>
-      </div>
-      <div class="links">
-        <router-link to="/">Home</router-link>
-        <router-link to="/NoteList">Notes</router-link>
-        <router-link to="/signup">Sign Up</router-link>
-        <router-link to="/login">Login</router-link>
-      </div>
-    </nav>
+  <div>
+    <nav-menu></nav-menu>
+    <router-view></router-view>
   </div>
-  <router-view />
 </template>
 
+<script>
+import NavMenu from "./components/NavMenu.vue";
+export default {
+  components: {
+    NavMenu,
+  },
+};
+</script>
 <style>
-body {
+body,
+html {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -26,31 +27,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-.logo {
-  font-weight: bold;
-  color: #2c3e50;
-}
-img {
-  max-width: 30px;
-}
-.links a {
-  margin-right: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-nav {
-  max-width: 1120px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-}
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

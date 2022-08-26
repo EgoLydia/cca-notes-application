@@ -8,11 +8,17 @@ const routes = [{
     },
 
     {
-        path: "/NoteList",
-        name: "NoteList",
+        path: "/SignupPage",
+        name: "SignupPage",
         component: () =>
-            import ( /* webpackChunkName: "about" */ "../views/NoteList.vue"),
+            import ( /* webpackChunkName: "about" */ "../views/SignupPage.vue"),
     },
+
+    // {
+    //   path: '/NoteComponentPage',
+    //   name: 'NoteComponentPage',
+    //   component: () => import(/* webpackChunkName: "about" */ '../views/NoteComponentPage.vue')
+    // },
 ];
 
 const router = createRouter({
