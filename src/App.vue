@@ -38,4 +38,8 @@ html {
   /* text-align: center; */
   color: #2c3e50;
 }
+
+#app > div:last-of-type {
+  margin-top: 100px;
+}
 </style>
