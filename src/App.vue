@@ -1,8 +1,18 @@
 <template>
-  <div>
-    <nav-menu></nav-menu>
-    <router-view></router-view>
+  <div id="nav">
+    <nav-menu>
+      <div class="logo">
+        <p>CCA Frontend Cohort Note App</p>
+      </div>
+      <div class="links">
+        <router-link to="/">Home</router-link>
+        <router-link to="/notes">Notes</router-link>
+        <router-link to="/SignupPage">Sign Up</router-link>
+        <router-link to="/LoginPage">Login</router-link>
+      </div>
+    </nav-menu>
   </div>
+  <router-view />
 </template>
 
 <script>
