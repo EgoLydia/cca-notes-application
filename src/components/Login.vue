@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="submitForm">
-      <input v-model="email" placeholder="Email" required /><br><br>
+      <input v-model="email" placeholder="Email" type="email" required /><br><br>
 
       <input v-model="password" placeholder="Password" type="password" :class="[inputBorder ? 'good' : 'bad']" required /><br>
 
