@@ -73,7 +73,7 @@ img {
   margin-top: 16px;
 }
 h1 {
-  font-size: 26px;
+  font-size: 23px;
   margin: 0 auto;
 }
 section {
