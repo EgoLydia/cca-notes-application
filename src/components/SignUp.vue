@@ -21,7 +21,7 @@
       <!-- <label>Confirm Password:</label><br />
         <input 
           v-model="confirmPassword" 
-          type="password" required 
+          type="password" required
         />
         <br /> -->
 
@@ -78,12 +78,13 @@ export default {
     async submitForm() {
       try {
         let result = await axios.post(
-          "https://ccsanotes-api.azurewebsites.net/users",
-          {
-            username: this.username,
-            email: this.email,
-            password: this.password,
-          }
+              `https://localhost:7245/users?username=${this.username}&email=${this.email}&password=${this.password}`
+          // `https://ccsanotes-api.azurewebsites.net/users/byUser`,
+          // {
+          //   username: this.username,
+          //   email: this.email,
+          //   password: this.password,
+          // }
         );
         return result;
       } catch (error) {
