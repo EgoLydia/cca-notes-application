@@ -9,15 +9,22 @@ const routes = [
   },
   {
     path: "/note-list",
-    name: "Note-List",
+    name: "note-List",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/NoteList.vue"),
   },
   {
-    path: "/SignupPage",
-    name: "SignupPage",
+    path: "/signup-page",
+    name: "signup-page",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/SignupPage.vue"),
+  },
+  {
+    path: "/note-component-page/:id",
+    name: "note-component-page",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/NoteComponentPage.vue"),
+      props: true
   },
 ];
 

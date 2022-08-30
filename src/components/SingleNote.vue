@@ -1,29 +1,53 @@
 <template>
-  <div class="note-widget" @click="goToNotePad" :style="widgetColor">
-    <h2 class="title">{{ note.title.substring(0, 15) }}</h2>
-    <p>{{ note.content }}</p>
-    <div class="date">{{ formatDate(note.updatedDate) }}</div>
-  </div>
+  <router-link :to="`/note-component-page/${note.noteId}`">
+    <div class="note-widget" @click="getData()" :style="widgetColor">
+      <h2 class="title">{{ note.title.substring(0, 15) }}</h2>
+      <p>{{ note.content }}</p>
+      <div class="date">{{ formatDate(note.updatedDate) }}</div>
+    </div>
+    <note-component :name= "name" :getData="getData" />
+  </router-link>
+  
 </template>
 
 <script>
+import NoteComponent from "../views/NoteComponentPage.vue";
 //import {colors} from "../colors"
 import { computed } from "@vue/runtime-core";
 //import { useRouter} from 'vue-router';
 import { colors } from "../config.js";
+import { useRouter } from 'vue-router';
 export default {
+  name: 'SingleNote',
+  components: {
+    NoteComponent,
+  },
   props: {
     note: {
       type: Object,
     },
   },
+  
+
+  methods: {
+      getData() {
+        let router = useRouter();
+        router.push({
+          name:"NoteComponent",
+          params:{
+            id:this.props.note.noteId
+          }
+        })
+      }
+  },
+
   setup() {
     //const router = useRouter();
     const colorList = colors;
     /*const goToNotePad = ()=>{
       router.push({
         name:"Note-Editor",
-        params:{
+        params:{e
           id:props.note.noteId
         }
       })

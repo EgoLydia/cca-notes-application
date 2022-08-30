@@ -10,10 +10,13 @@ import SingleNote from "@/components/SingleNote.vue";
 import { onMounted, ref } from "@vue/runtime-core";
 import { BASE_URL } from "../config.js";
 
+
+
 onMounted(() => {
   console.log("Notes Collection");
   fetchNotes();
 });
+
 const notes = ref([]);
 const fetchNotes = () => {
   axios
@@ -23,6 +26,7 @@ const fetchNotes = () => {
     })
     .catch(err => console.log(err));
 };
+
 </script>
 
 <style scoped>
