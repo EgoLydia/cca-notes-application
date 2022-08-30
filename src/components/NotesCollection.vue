@@ -31,7 +31,6 @@ const fetchNotes = () => {
   overflow: hidden;
 }
 .note-list {
-  margin: 1.5rem 0;
   padding: 1.5rem;
   display: grid;
   gap: 1rem;
