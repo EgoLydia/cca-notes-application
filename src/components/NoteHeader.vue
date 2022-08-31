@@ -28,7 +28,7 @@ span {
 }
 
 /* Laptop and Desktop */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .the-header {
     display: flex;
     justify-content: space-around;
