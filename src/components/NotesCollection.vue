@@ -1,6 +1,11 @@
 <template>
-  <div class="note-list">
-    <SingleNote v-for="(note, index) in notes" :key="index" :note="note" />
+  <div>
+    <div class=" loader"  v-if="notes.length == 0">
+        <NotesLoader />
+      </div>
+    <div class="note-list">
+      <SingleNote v-for="(note, index) in notes" :key="index" :note="note" />
+    </div>
   </div>
 </template>
 
@@ -9,6 +14,7 @@ import axios from "axios";
 import SingleNote from "@/components/SingleNote.vue";
 import { onMounted, ref } from "@vue/runtime-core";
 import { BASE_URL } from "../config.js";
+import NotesLoader from "./NotesLoader.vue";
 
 onMounted(() => {
   console.log("Notes Collection");
@@ -36,15 +42,23 @@ const fetchNotes = () => {
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   justify-content: space-evenly;
+  margin-bottom: 100px;
 }
 
-@media (min-width: 768px) {
+.loader{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
   .note-list {
     padding: 2rem;
-    /* justify-content: start; */
     margin: 0 auto;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
+    justify-content: start;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 0.25fr));
     max-width: 1120px;
   }
+  
 }
 </style>

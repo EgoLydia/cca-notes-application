@@ -7,9 +7,7 @@
 </template>
 
 <script>
-//import {colors} from "../colors"
 import { computed } from "@vue/runtime-core";
-//import { useRouter} from 'vue-router';
 import { colors } from "../config.js";
 export default {
   props: {
