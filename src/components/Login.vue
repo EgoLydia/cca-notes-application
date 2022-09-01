@@ -1,51 +1,30 @@
 <template>
   <div>
     <form @submit.prevent="submitForm">
-      <label>Username:</label><br />
-      <input v-model="username" required />
-      <br />
+      <input v-model="email" placeholder="Email" type="email" required /><br><br>
 
-      <label>Email:</label><br />
-      <input v-model="email" required />
-      <br />
+      <input v-model="password" placeholder="Password" type="password" :class="[inputBorder ? 'good' : 'bad']" required /><br>
 
-      <label>Password:</label><br />
-      <input
-        v-model="password"
-        type="password"
-        :class="[inputBorder ? 'good' : 'bad']"
-        required
-      />
-      <br />
-
-      <!-- <label>Confirm Password:</label><br />
-        <input 
-          v-model="confirmPassword" 
-          type="password" required 
-        />
-        <br /> -->
-
-      <button class="btn" type="submit">Sign Up</button>
+      <button class="btn" type="submit">Login</button>
 
       <p>
-        Already have an account?
-        <router-link to="/LoginPage"> Log in </router-link>
+        Don't have an account?
+        <router-link to="/SignupPage">Sign Up</router-link>
       </p>
     </form>
   </div>
 </template>
 
 <script>
+// import { response } from 'express'
 import axios from "axios";
 
 export default {
-  name: "Signup",
+  name: "Login",
   data() {
     return {
-      username: "",
       email: "",
       password: "",
-      confirmPassword: "",
     };
   },
 
@@ -63,9 +42,8 @@ export default {
     async submitForm() {
       try {
         let result = await axios.post(
-          "https://ccsanotes-api.azurewebsites.net/users",
+          "https://ccsanotes-api.azurewebsites.net/users/user/{userId}",
           {
-            username: this.username,
             email: this.email,
             password: this.password,
           }

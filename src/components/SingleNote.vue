@@ -14,7 +14,6 @@
 import NoteComponent from "../views/NoteComponentPage.vue";
 //import {colors} from "../colors"
 import { computed } from "@vue/runtime-core";
-//import { useRouter} from 'vue-router';
 import { colors } from "../config.js";
 // import { useRouter } from 'vue-router';
 export default {
@@ -42,7 +41,6 @@ export default {
   },
 
   setup() {
-    //const router = useRouter();
     const colorList = colors;
     /*const goToNotePad = ()=>{
       router.push({
@@ -64,10 +62,6 @@ export default {
         backgroundColor: randomColor.value,
       };
     });
-
-    /*const setCurrentNote = ()=>{
-      store.commit('setCurrentNote', props.note.id);
-    }*/
     return {
       widgetColor,
       formatDate,
