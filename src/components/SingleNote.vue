@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/note-component-page/${note.noteId}`">
+  <router-link class="router" :to="`/note-component-page/${note.noteId}`">
     <div class="note-widget" @click="getData()" :style="widgetColor">
       <h2 class="title">{{ note.title.substring(0, 15) }}</h2>
       <p>{{ note.content }}</p>
@@ -79,16 +79,22 @@ export default {
   height: 150px;
   display: flex;
   flex-direction: column;
+  transition: 0.5s;
 }
 
 .note-widget:hover {
   transform: scale(1.05);
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .note-widget > p {
   width: 100%;
   height: 60%;
   overflow: hidden;
+}
+
+.router {
+  text-decoration: none;
 }
 </style>
