@@ -1,32 +1,40 @@
 <template>
   <div>
-    <div class=" loader"  v-if="notes.length == 0">
-        <NotesLoader />
-      </div>
+    <div class="loader" v-if="notes.length == 0">
+      <NotesLoader />
+    </div>
     <div class="note-list">
       <SingleNote v-for="(note, index) in notes" :key="index" :note="note" />
     </div>
   </div>
 </template>
 
-<script setup>
-import axios from "axios";
-import SingleNote from "@/components/SingleNote.vue";
-import { onMounted, ref } from "@vue/runtime-core";
-import { BASE_URL } from "../config.js";
-import NotesLoader from "./NotesLoader.vue";
+<script>
+import SingleNote from "../components/SingleNote.vue";
+import NotesLoader from "../components/NotesLoader.vue";
 
-onMounted(() => {
-  fetchNotes();
-});
-const notes = ref([]);
-const fetchNotes = () => {
-  axios
-    .get(`${BASE_URL}/Notes`)
-    .then(res => {
-      notes.value = res.data;
-    })
-    .catch(err => console.log(err));
+export default {
+  components: {
+    SingleNote,
+    NotesLoader,
+  },
+  methods: {
+    fetchNotes() {
+      const getNotes = this.$store.dispatch("fetchNotes");
+      return getNotes;
+    },
+  },
+  computed: {
+    notes() {
+      const note = this.$store.getters.note;
+      return note;
+    },
+  },
+  mounted() {
+    if (this.notes.length == 0) {
+      this.fetchNotes();
+    }
+  },
 };
 </script>
 
@@ -44,8 +52,8 @@ const fetchNotes = () => {
   margin-bottom: 100px;
 }
 
-.loader{
-  width:100%;
+.loader {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -58,6 +66,5 @@ const fetchNotes = () => {
     grid-template-columns: repeat(auto-fit, minmax(150px, 0.25fr));
     max-width: 1120px;
   }
-  
 }
 </style>
