@@ -1,12 +1,20 @@
 <template>
   <div>
     <form @submit.prevent="submitForm">
-      <input v-model="email" placeholder="Email" type="email" required /><br><br>
-
-      <input v-model="password" placeholder="Password" type="password" :class="[inputBorder ? 'good' : 'bad']" required /><br>
-
+      <input
+        v-model="email"
+        placeholder="Email"
+        type="email"
+        required
+      /><br /><br />
+      <input
+        v-model="password"
+        placeholder="Password"
+        type="password"
+        :class="[inputBorder ? 'good' : 'bad']"
+        required
+      /><br />
       <button class="btn" type="submit">Login</button>
-
       <p>
         Don't have an account?
         <router-link to="/SignupPage">Sign Up</router-link>
@@ -16,7 +24,6 @@
 </template>
 
 <script>
-// import { response } from 'express'
 import axios from "axios";
 
 export default {
