@@ -5,22 +5,17 @@
       <p>{{ note.content }}</p>
       <div class="date">{{ formatDate(note.updatedDate) }}</div>
     </div>
-    <note-component :name= "name" :getData="getData" v-show="false"/>
   </router-link>
   
 </template>
 
 <script>
-import NoteComponent from "../views/NoteComponentPage.vue";
 //import {colors} from "../colors"
 import { computed } from "@vue/runtime-core";
 import { colors } from "../config.js";
 // import { useRouter } from 'vue-router';
 export default {
   name: 'SingleNote',
-  components: {
-    NoteComponent,
-  },
   props: {
     note: {
       type: Object,
