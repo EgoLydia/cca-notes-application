@@ -1,16 +1,6 @@
 <template>
   <div id="nav">
-    <nav-menu>
-      <div class="logo">
-        <p>CCA Frontend Cohort Note App</p>
-      </div>
-      <div class="links">
-        <router-link to="/">Home</router-link>
-        <router-link to="/notes">Notes</router-link>
-        <router-link to="/SignupPage">Sign Up</router-link>
-        <router-link to="/LoginPage">Login</router-link>
-      </div>
-    </nav-menu>
+    <nav-menu></nav-menu>
   </div>
   <router-view />
 </template>
@@ -35,7 +25,6 @@ html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
   color: #2c3e50;
 }
 

@@ -73,7 +73,7 @@ img {
   margin-top: 16px;
 }
 h1 {
-  font-size: 26px;
+  font-size: 23px;
   margin: 0 auto;
 }
 section {
@@ -83,7 +83,6 @@ section {
 .container {
   max-width: 1120px;
   margin: 0 auto;
-  /*margin-top: 100px;*/ /* I changed this and added margin-top for all router-view views*/
 }
 a {
   text-decoration: none;

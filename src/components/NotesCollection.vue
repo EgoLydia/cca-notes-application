@@ -11,7 +11,6 @@ import { onMounted, ref } from "@vue/runtime-core";
 import { BASE_URL } from "../config.js";
 
 onMounted(() => {
-  console.log("Notes Collection");
   fetchNotes();
 });
 const notes = ref([]);
@@ -31,7 +30,6 @@ const fetchNotes = () => {
   overflow: hidden;
 }
 .note-list {
-  margin: 1.5rem 0;
   padding: 1.5rem;
   display: grid;
   gap: 1rem;
@@ -42,7 +40,6 @@ const fetchNotes = () => {
 @media (min-width: 768px) {
   .note-list {
     padding: 2rem;
-    /* justify-content: start; */
     margin: 0 auto;
     grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
     max-width: 1120px;

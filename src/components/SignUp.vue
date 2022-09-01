@@ -17,14 +17,6 @@
         required
       />
       <br />
-
-      <!-- <label>Confirm Password:</label><br />
-        <input 
-          v-model="confirmPassword" 
-          type="password" required 
-        />
-        <br /> -->
-
       <button class="btn" type="submit">Sign Up</button>
 
       <p>
@@ -36,7 +28,6 @@
 </template>
 
 <script>
-// import { response } from 'express'
 import axios from "axios";
 
 export default {
@@ -61,24 +52,10 @@ export default {
   },
 
   methods: {
-    // let info = [this.username,
-    //             this.email,
-    //             this.password,
-    //             this.confirmPassword
-    //            ];
-
-    // if(this.password === this.confirmPassword) {
-    //   localStorage.setItem('user-info', info)
-    //   this.$router.push({name: 'Home'})
-    // } else {
-    //   alert('Passwords do not match')
-    //   return
-    // }
-
     async submitForm() {
       try {
         let result = await axios.post(
-          "https://ccsanotes-api.azurewebsites.net/users",
+          `https://ccsanotes-api.azurewebsites.net/users/byUser`,
           {
             username: this.username,
             email: this.email,
