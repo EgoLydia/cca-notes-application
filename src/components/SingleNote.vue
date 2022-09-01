@@ -5,7 +5,7 @@
       <p>{{ note.content }}</p>
       <div class="date">{{ formatDate(note.updatedDate) }}</div>
     </div>
-    <note-component :name= "name" :getData="getData" />
+    <note-component :name= "name" :getData="getData" v-show="false"/>
   </router-link>
   
 </template>
@@ -16,7 +16,7 @@ import NoteComponent from "../views/NoteComponentPage.vue";
 import { computed } from "@vue/runtime-core";
 //import { useRouter} from 'vue-router';
 import { colors } from "../config.js";
-import { useRouter } from 'vue-router';
+// import { useRouter } from 'vue-router';
 export default {
   name: 'SingleNote',
   components: {
@@ -31,11 +31,11 @@ export default {
 
   methods: {
       getData() {
-        let router = useRouter();
-        router.push({
-          name:"NoteComponent",
+        // let router = useRouter();
+        this.$router.push({
+          name:"note-component-page",
           params:{
-            id:this.props.note.noteId
+            id:this.note.noteId
           }
         })
       }

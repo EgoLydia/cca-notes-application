@@ -1,43 +1,65 @@
 <template>
   <form>
-    <p>{{ $route.params.id }}</p>
+      <h1>{{ noteContent.title }}</h1>
+      <div class="note-pad">
+        <p>{{ noteContent.content }}</p>
+        <input type="text" v-model="noteText" @keypress.enter="saveNote" /><br><br>
+        <EditButton/>
+      </div>
   </form>
 </template>
 
 <script>
-// import { mapGetters } from "vuex";
-// import router from "../router";
+import axios from "axios";
+import { BASE_URL } from "../config.js";
+import EditButton from "./EditButton.vue";
 
 export default {
+    components: {
+    EditButton
+    },
+
     name: 'NoteComponent',
 
+    data() {
+      return {
+        noteContent: '',
+      }
+    },
+
+    mounted() {
+       this.getData();
+    },
+
+    methods: {
+      getData() {
+        axios
+          .get(`${BASE_URL}/Notes/by-id/${this.note}`)
+          .then(res => {
+            this.noteContent = res.data;
+          })
+          .catch(err => console.log(err));
+      },
+    },
+
     computed: {
-      noteContent() {
-        return this.noteContent(this.$route.params.id);
+      note() {
+        return this.$route.params.id;
       }
     },
 };
 
-
-
 </script>
-<style>
-body,
-html {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  color: #2c3e50;
+<style scoped>
+  h1{
+    text-align: center;
+  }
+.note-pad {
+  margin: 0 auto;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0px 2px 12px 5px #ccccccff;
+  padding: 100px;
 }
 
-#app > div:last-of-type {
-  margin-top: 100px;
-}
 </style>
