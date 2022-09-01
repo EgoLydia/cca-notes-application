@@ -83,7 +83,6 @@ section {
 .container {
   max-width: 1120px;
   margin: 0 auto;
-  /*margin-top: 100px;*/ /* I changed this and added margin-top for all router-view views*/
 }
 a {
   text-decoration: none;

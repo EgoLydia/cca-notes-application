@@ -17,7 +17,6 @@ import { BASE_URL } from "../config.js";
 import NotesLoader from "./NotesLoader.vue";
 
 onMounted(() => {
-  console.log("Notes Collection");
   fetchNotes();
 });
 const notes = ref([]);
