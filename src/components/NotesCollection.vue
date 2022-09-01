@@ -10,11 +10,13 @@
 </template>
 
 <script>
-import SingleNote from "@/components/SingleNote.vue";
+import SingleNote from "../components/SingleNote.vue";
+import NotesLoader from "../components/NotesLoader.vue";
 
 export default {
   components: {
     SingleNote,
+    NotesLoader,
   },
   methods: {
     fetchNotes() {
