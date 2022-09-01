@@ -4,23 +4,28 @@
   </div>
 </template>
 
-<script setup>
-import axios from "axios";
+<script>
 import SingleNote from "@/components/SingleNote.vue";
-import { onMounted, ref } from "@vue/runtime-core";
-import { BASE_URL } from "../config.js";
 
-onMounted(() => {
-  fetchNotes();
-});
-const notes = ref([]);
-const fetchNotes = () => {
-  axios
-    .get(`${BASE_URL}/Notes`)
-    .then(res => {
-      notes.value = res.data;
-    })
-    .catch(err => console.log(err));
+export default {
+  components: {
+    SingleNote,
+  },
+  methods: {
+    fetchNotes() {
+      const getNotes = this.$store.dispatch("fetchNotes");
+      return getNotes;
+    },
+  },
+  computed: {
+    notes() {
+      const note = this.$store.getters.note;
+      return note;
+    },
+  },
+  mounted() {
+    this.fetchNotes();
+  },
 };
 </script>
 
