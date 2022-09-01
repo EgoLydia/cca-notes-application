@@ -61,6 +61,7 @@ export default {
   text-align: center;
   box-shadow: 0px 2px 12px 5px #ccccccff;
   padding: 100px;
+  border-radius: 10px;
 }
 
 textarea{
