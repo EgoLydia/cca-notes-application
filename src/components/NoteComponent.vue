@@ -4,7 +4,7 @@
       <div class="note-pad">
         <p>{{ noteContent.content }}</p>
         <textarea type="text" v-model="noteText" @keypress.enter="saveNote" /><br><br>
-        <EditButton/>
+        <button class="btn">save</button>
       </div>
   </form>
 </template>
@@ -12,12 +12,8 @@
 <script>
 import axios from "axios";
 import { BASE_URL } from "../config.js";
-import EditButton from "./EditButton.vue";
 
 export default {
-    components: {
-    EditButton
-    },
 
     name: 'NoteComponent',
 
