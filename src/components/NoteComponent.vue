@@ -3,7 +3,7 @@
       <h1>{{ noteContent.title }}</h1>
       <div class="note-pad">
         <p>{{ noteContent.content }}</p>
-        <input type="text" v-model="noteText" @keypress.enter="saveNote" /><br><br>
+        <textarea type="text" v-model="noteText" @keypress.enter="saveNote" /><br><br>
         <EditButton/>
       </div>
   </form>
@@ -60,6 +60,11 @@ export default {
   text-align: center;
   box-shadow: 0px 2px 12px 5px #ccccccff;
   padding: 100px;
+}
+
+textarea{
+  width: 400px;
+  height: 100px;
 }
 
 </style>
