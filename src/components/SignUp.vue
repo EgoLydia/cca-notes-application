@@ -21,7 +21,7 @@
 
       <p>
         Already have an account?
-        <router-link to="/LoginPage"> Log in </router-link>
+        <router-link to="/login">Login</router-link>
       </p>
     </form>
   </div>

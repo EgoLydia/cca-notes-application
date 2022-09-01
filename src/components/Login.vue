@@ -24,8 +24,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "Login",
   data() {
@@ -46,20 +44,6 @@ export default {
   },
 
   methods: {
-    async submitForm() {
-      try {
-        let result = await axios.post(
-          "https://ccsanotes-api.azurewebsites.net/users/user/{userId}",
-          {
-            email: this.email,
-            password: this.password,
-          }
-        );
-        return result;
-      } catch (error) {
-        console.log(error);
-      }
-    },
   },
 };
 </script>
