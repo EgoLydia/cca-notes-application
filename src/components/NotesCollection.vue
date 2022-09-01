@@ -18,10 +18,10 @@ const notes = ref([]);
 const fetchNotes = () => {
   axios
     .get(`${BASE_URL}/Notes`)
-    .then(res => {
+    .then((res) => {
       notes.value = res.data;
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 </script>
 
