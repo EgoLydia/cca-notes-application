@@ -17,7 +17,7 @@
       <button class="btn" type="submit">Login</button>
       <p>
         Don't have an account?
-        <router-link to="/SignupPage">Sign Up</router-link>
+        <router-link to="/signup">Sign Up</router-link>
       </p>
     </form>
   </div>
@@ -43,8 +43,7 @@ export default {
     },
   },
 
-  methods: {
-  },
+  methods: {},
 };
 </script>
 
