@@ -3,7 +3,7 @@
       <h1>{{ noteContent.title }}</h1>
       <div class="note-pad">
         <p>{{ noteContent.content }}</p>
-        <textarea type="text" v-model="noteText" @keypress.enter="saveNote" /><br><br>
+        <textarea placeholder="Edit your note" type="text" v-model="noteText" @keypress.enter="saveNote" /><br><br>
         <button class="btn">save</button>
       </div>
   </form>
@@ -14,7 +14,6 @@ import axios from "axios";
 import { BASE_URL } from "../config.js";
 
 export default {
-
     name: 'NoteComponent',
 
     data() {
@@ -55,7 +54,6 @@ export default {
   margin: 0 auto;
   width: 500px;
   text-align: center;
-  box-shadow: 0px 2px 12px 5px #ccccccff;
   padding: 100px;
   border-radius: 10px;
 }
@@ -63,6 +61,15 @@ export default {
 textarea{
   width: 400px;
   height: 100px;
+}
+.btn {
+  padding: 5px;
+  width: 80px;
+  transition: 0.5s;
+}
+.btn:hover {
+  transform: scale(1.15);
+  transition: 0.5s;
 }
 
 </style>

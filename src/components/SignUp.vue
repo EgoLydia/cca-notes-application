@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="signUp">
       <label>Username:</label><br />
       <input v-model="username" required />
       <br />
@@ -18,15 +18,7 @@
       />
       <br />
 
-      <!-- <label>Confirm Password:</label><br />
-        <input 
-          v-model="confirmPassword" 
-          type="password" required 
-        />
-        <br /> -->
-
-      <button class="btn" type="submit">Sign Up</button>
-
+      <button @click="signedUp()" v-bind:disabled="!isDisabled" class="btn" type="submit"> Sign Up </button>
       <p>
         Already have an account?
         <router-link to="/LoginPage"> Log in </router-link>
@@ -45,7 +37,6 @@ export default {
       username: "",
       email: "",
       password: "",
-      confirmPassword: "",
     };
   },
 
@@ -57,12 +48,15 @@ export default {
         return false;
       }
     },
+    isDisabled() {
+      return this.password.length > 3 && this.password.length < 10;
+    }
   },
 
   methods: {
-    async submitForm() {
+    async signUp() {
       try {
-        let result = await axios.post(
+        let response = await axios.post(
           "https://ccsanotes-api.azurewebsites.net/users",
           {
             username: this.username,
@@ -70,11 +64,15 @@ export default {
             password: this.password,
           }
         );
-        return result;
+        this.signedUp()
+        return response;
       } catch (error) {
         console.log(error);
       }
     },
+    signedUp() {
+      this.$router.push({path:"/note-list"});
+    }
   },
 };
 </script>
