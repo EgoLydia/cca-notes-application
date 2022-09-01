@@ -13,7 +13,6 @@
 //import {colors} from "../colors"
 import { computed } from "@vue/runtime-core";
 import { colors } from "../config.js";
-// import { useRouter } from 'vue-router';
 export default {
   name: 'SingleNote',
   props: {
@@ -36,6 +35,7 @@ export default {
   },
 
   setup() {
+    const store = useStore();
     const colorList = colors;
     /*const goToNotePad = ()=>{
       router.push({
@@ -57,30 +57,42 @@ export default {
         backgroundColor: randomColor.value,
       };
     });
+    const deleteNote = id => {
+      store.dispatch("deleteNoteById", id);
+      console.log("deleteNoteById");
+    };
     return {
       widgetColor,
       formatDate,
+      deleteNote,
     };
   },
 };
 </script>
 
 <style scoped>
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+button {
+  border: none;
+  font-size: 18px;
+}
 .note-widget {
   padding: 0.8rem;
   font-size: 0.6rem;
   border-radius: 10px;
   box-shadow: 0 0 2px #ccc;
-  height: 150px;
+  height: 130px;
   display: flex;
   flex-direction: column;
-  transition: 0.5s;
 }
 
 .note-widget:hover {
   transform: scale(1.05);
   cursor: pointer;
-  transition: 0.5s;
 }
 
 .note-widget > p {
