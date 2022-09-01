@@ -14,7 +14,6 @@
 <script>
 import { computed } from "@vue/runtime-core";
 import { colors } from "../config.js";
-// import { BASE_URL } from "../config.js";
 import { useStore } from "vuex";
 
 export default {
@@ -42,14 +41,6 @@ export default {
       store.dispatch("deleteNoteById", id);
       console.log("deleteNoteById");
     };
-    // const deleteNote = id => {
-    //   console.log(props.note);
-    //   axios.delete(`${BASE_URL}/Notes?id=` + id).then(() => {
-    //     console.log("delete");
-    //     store.dispatch("noteDeleted");
-    //   });
-    // };
-
     return {
       widgetColor,
       formatDate,

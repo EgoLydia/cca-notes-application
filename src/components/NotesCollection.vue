@@ -24,7 +24,9 @@ export default {
     },
   },
   mounted() {
-    this.fetchNotes();
+    if (this.notes.length == 0) {
+      this.fetchNotes();
+    }
   },
 };
 </script>
