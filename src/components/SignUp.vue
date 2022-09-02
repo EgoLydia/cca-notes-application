@@ -96,7 +96,7 @@ label {
   margin: 5px;
   display: inline-block;
   color: #aaa;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 input {
