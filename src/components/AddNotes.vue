@@ -56,8 +56,8 @@ export default {
           "https://ccsanotes-api.azurewebsites.net/Notes/create-note",
           this.noteData
         )
-        .then(response => console.log(response))
-        .catch(error => console.log(error));
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
     },
   },
 };
