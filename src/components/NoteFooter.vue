@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script></script>
+<script setup></script>
 
 <style scoped>
 body {
@@ -34,7 +34,7 @@ body {
 }
 
 /* Laptop and Desktop */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .footer {
     display: flex;
     justify-content: center;

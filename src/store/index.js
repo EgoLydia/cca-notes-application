@@ -1,22 +1,47 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
+import axios from "axios";
+import { BASE_URL } from "../config.js";
 
 export default createStore({
   state: {
-    //currentNote:{},
+    notes: [],
   },
   getters: {
-    getNoteById: (state) => (id) => {
-      return state.notes.find(note => note.id == id)
-    }
+    getNoteById: state => id => {
+      return state.notes.find(note => note.id == id);
+    },
+    note(state) {
+      return state.notes;
+    },
   },
   mutations: {
-    /*setCurrentNote(state,payload){
-      state.currentNote = state.notes.find(note=> note.id == payload)
-      console.log(state.currentNote)
-    }*/
+    setNotes(state, payload) {
+      state.notes = payload;
+    },
+    addNote(state, payload) {
+      state.notes.push(payload);
+    },
+    deleteNote(state, id) {
+      const indexOfItem = state.notes.findIndex(note => note.noteId === id);
+      if (indexOfItem > -1) {
+        state.notes.splice(indexOfItem, 1);
+      }
+    },
   },
   actions: {
+    fetchNotes(context) {
+      axios
+        .get(`${BASE_URL}/Notes`)
+        .then(res => {
+          context.commit("setNotes", res.data);
+        })
+        .catch(err => console.log(err));
+    },
+    deleteNoteById(context, id) {
+      axios.delete(`${BASE_URL}/Notes?id=` + id).then(() => {
+        context.commit("deleteNote", id);
+      });
+    },
   },
-  modules: {
-  }
-})
+  modules: {},
+});
