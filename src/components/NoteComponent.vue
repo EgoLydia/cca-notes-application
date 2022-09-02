@@ -39,8 +39,9 @@ export default {
           .catch(err => console.log(err));
       },
       updateNote() {
+        // 'https://ccsanotes-api.azurewebsites.net/Notes/title?id=20750d7a-1e86-490d-a1db-af03013880d7&title=bible'
         axios
-        .post(`${BASE_URL}/Notes/title`,
+        .put(`${BASE_URL}/Notes/title?title?id=${this.noteContent.noteId}&title=${this.noteTitle}`,
           {
             id: this.noteContent.noteId,
             title: this.noteTitle
