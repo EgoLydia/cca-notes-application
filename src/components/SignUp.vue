@@ -18,10 +18,15 @@
       />
       <br />
 
-      <button @click="signedUp()" v-bind:disabled="!isDisabled" class="btn" type="submit"> Sign Up </button>
+      <button @click="signUpRoute()" 
+        v-bind:disabled="!isDisabled" 
+        class="btn" type="submit"> Sign Up 
+      </button>
       <p>
         Already have an account?
-        <router-link to="/LoginPage"> Log in </router-link>
+        <router-link to="/LoginPage"> 
+          Log in 
+        </router-link>
       </p>
     </form>
   </div>
@@ -64,13 +69,13 @@ export default {
             password: this.password,
           }
         );
-        this.signedUp()
+        this.signUpRoute()
         return response;
       } catch (error) {
         console.log(error);
       }
     },
-    signedUp() {
+    signUpRoute() {
       this.$router.push({path:"/note-list"});
     }
   },
