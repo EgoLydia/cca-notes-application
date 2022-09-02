@@ -56,8 +56,8 @@ export default {
           "https://ccsanotes-api.azurewebsites.net/Notes/create-note",
           this.noteData
         )
-        .then((response) => console.log(response))
-        .catch((error) => console.log(error));
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
     },
   },
 };
@@ -65,7 +65,10 @@ export default {
 
 <style scoped>
 /* Laptop / Desktop*/
-
+form {
+  max-width: 1120px;
+  margin: 0 auto;
+}
 .title {
   border: none;
   outline: none;
@@ -76,7 +79,6 @@ export default {
   font-size: 16px;
   margin: 10px;
 }
-
 .textarea {
   display: flex;
   justify-content: center;
@@ -86,22 +88,18 @@ textarea {
   padding: 20px;
   font-size: 30px;
 }
-.note_details {
-  margin-left: 120px;
-}
 .save_button {
-  background: #2f7254;
+  background: #e4fff3;
   height: 40px;
   width: 118px;
   border-radius: 5px;
   font-size: 20px;
-  color: white;
 }
 .btnSave {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
-  margin-right: 125px;
+  margin-right: 10px;
 }
 
 /* Mobile View */
@@ -113,21 +111,11 @@ textarea {
     font-size: 25px;
   }
   .save_button {
-    background: #2f7254;
-    height: 40px;
-    width: 118px;
-    border-radius: 5px;
     font-size: 20px;
-    color: white;
     justify-content: center;
   }
   .note_details {
     margin-left: 20px;
   }
-  /* .btnSave {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  } */
 }
 </style>

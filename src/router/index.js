@@ -6,7 +6,6 @@ const routes = [{
         component: () =>
             import ("../views/Home.vue"),
     },
-
     {
         path: "/note-list",
         name: "Note-List",
@@ -19,18 +18,17 @@ const routes = [{
         component: () =>
             import ("../views/SignupPage.vue"),
     },
-
-    {
-        path: "/AddNotePage",
-        name: "AddNotePage",
-        component: () =>
-            import ("../views/AddNotePage.vue"),
-    },
     {
         path: "/login",
         name: "LoginPage",
         component: () =>
             import ("../views/LoginPage.vue"),
+    },
+    {
+        path: "/AddNotePage",
+        name: "AddNotePage",
+        component: () =>
+            import ("../views/AddNotePage.vue"),
     },
 ];
 
