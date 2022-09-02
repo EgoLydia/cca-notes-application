@@ -1,50 +1,46 @@
 import { createStore } from "vuex";
 import axios from "axios";
+import { BASE_URL } from "../config.js";
 
 export default createStore({
     state: {
-        //currentNote:{},
-        noteData: {
-            userId: "",
-            title: "",
-            content: "",
-        },
+        notes: [],
     },
     getters: {
         getNoteById: (state) => (id) => {
             return state.notes.find((note) => note.id == id);
         },
-
-        noteData: (state) => {
-            return state.noteData;
+        note(state) {
+            return state.notes;
         },
     },
     mutations: {
-        setNoteData(state, payload) {
-            state.noteData = payload;
+        setNotes(state, payload) {
+            state.notes = payload;
         },
-        /*setCurrentNote(state,payload){
-                                                      state.currentNote = state.notes.find(note=> note.id == payload)
-                                                      console.log(state.currentNote)
-                                                    }*/
+        addNote(state, payload) {
+            state.notes.push(payload);
+        },
+        deleteNote(state, id) {
+            const indexOfItem = state.notes.findIndex((note) => note.noteId === id);
+            if (indexOfItem > -1) {
+                state.notes.splice(indexOfItem, 1);
+            }
+        },
     },
-
     actions: {
-        async getUserbyId() {
-            const response = await axios.get(
-                "https://ccsanotes-api.azurewebsites.net/users/user/27dd9087-f8de-4ae3-a301-af03013e294c"
-            );
-            return response.data;
+        fetchNotes(context) {
+            axios
+                .get(`${BASE_URL}/Notes`)
+                .then((res) => {
+                    context.commit("setNotes", res.data);
+                })
+                .catch((err) => console.log(err));
         },
-
-        async createNote() {
-            await axios
-                .post(
-                    "https://ccsanotes-api.azurewebsites.net/Notes/create-note",
-                    this.noteData
-                )
-                .then((response) => console.log(response))
-                .catch((error) => console.log(error));
+        deleteNoteById(context, id) {
+            axios.delete(`${BASE_URL}/Notes?id=` + id).then(() => {
+                context.commit("deleteNote", id);
+            });
         },
     },
     modules: {},
