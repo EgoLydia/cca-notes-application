@@ -24,7 +24,7 @@
       </button>
       <p>
         Already have an account?
-        <router-link to="/LoginPage"> 
+        <router-link to="/login"> 
           Log in 
         </router-link>
       </p>
