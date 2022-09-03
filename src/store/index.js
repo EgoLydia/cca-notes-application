@@ -5,6 +5,12 @@ import { BASE_URL } from "../config.js";
 export default createStore({
   state: {
     notes: [],
+    currentUser: {
+      userId: "",
+      username: "",
+      email: "",
+      password: "",
+    },
   },
   getters: {
     getNoteById: state => id => {
@@ -18,6 +24,9 @@ export default createStore({
     setNotes(state, payload) {
       state.notes = payload;
     },
+    setCurrentUser(state, payload) {
+      state.currentUser = payload;
+    },
     addNote(state, payload) {
       state.notes.push(payload);
     },
@@ -29,6 +38,19 @@ export default createStore({
     },
   },
   actions: {
+    async signUp(context, payload) {
+      await axios
+        .post(`${BASE_URL}/users/byUser`, {
+          userId: new Date().toISOString(),
+          username: payload.username,
+          email: payload.email,
+          password: payload.password,
+        })
+        .then(() => {
+          context.commit("setCurrentUser");
+        })
+        .catch(err => console.log(err));
+    },
     fetchNotes(context) {
       axios
         .get(`${BASE_URL}/Notes`)
