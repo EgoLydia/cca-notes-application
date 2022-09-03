@@ -1,4 +1,4 @@
-export const BASE_URL = "https://ccsanotes-api.azurewebsites.net";
+export const BASE_URL = "https://localhost:7245";
 export const colors = [
   "#E8F5FC",
   "#FFF5E2",
