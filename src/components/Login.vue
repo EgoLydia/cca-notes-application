@@ -17,15 +17,13 @@
       <button class="btn" type="submit">Login</button>
       <p>
         Don't have an account?
-        <router-link to="/SignupPage">Sign Up</router-link>
+        <router-link to="/signup">Sign Up</router-link>
       </p>
     </form>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "Login",
   data() {
@@ -45,22 +43,7 @@ export default {
     },
   },
 
-  methods: {
-    async submitForm() {
-      try {
-        let result = await axios.post(
-          "https://ccsanotes-api.azurewebsites.net/users/user/{userId}",
-          {
-            email: this.email,
-            password: this.password,
-          }
-        );
-        return result;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
+  methods: {},
 };
 </script>
 

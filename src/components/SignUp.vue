@@ -18,15 +18,17 @@
       />
       <br />
 
-      <button @click="signUpRoute()" 
-        v-bind:disabled="!isDisabled" 
-        class="btn" type="submit"> Sign Up 
+      <button
+        @click="signUpRoute()"
+        v-bind:disabled="!isDisabled"
+        class="btn"
+        type="submit"
+      >
+        Sign Up
       </button>
       <p>
         Already have an account?
-        <router-link to="/login"> 
-          Log in 
-        </router-link>
+        <router-link to="/login">Login</router-link>
       </p>
     </form>
   </div>
@@ -55,7 +57,7 @@ export default {
     },
     isDisabled() {
       return this.password.length > 3 && this.password.length < 10;
-    }
+    },
   },
 
   methods: {
@@ -69,15 +71,15 @@ export default {
             password: this.password,
           }
         );
-        this.signUpRoute()
+        this.signUpRoute();
         return response;
       } catch (error) {
         console.log(error);
       }
     },
     signUpRoute() {
-      this.$router.push({path:"/note-list"});
-    }
+      this.$router.push({ path: "/note-list" });
+    },
   },
 };
 </script>
