@@ -8,7 +8,7 @@
           doloribus enim soluta quas. Consequatur dolorum aliquid vitae neque
           sapiente libero pariatur. Placeat asperiores aliquid nesciunt.
         </p>
-        <button><router-link to="/SignupPage">Sign up now</router-link></button>
+        <button><router-link to="/signup-page">Sign up now</router-link></button>
         <div>
           <img src="@/assets/Checklist.jpg" alt="checklist" />
         </div>

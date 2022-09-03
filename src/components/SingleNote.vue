@@ -1,12 +1,14 @@
 <template>
-  <div class="note-widget" :style="widgetColor">
-    <h2 class="title">{{ note.title.substring(0, 15) }}</h2>
-    <p>{{ note.content }}</p>
-    <div class="wrap">
-      <div class="date">{{ formatDate(note.updatedDate) }}</div>
-      <button :style="widgetColor" @click="deleteNote(note.noteId)">
-        <i class="ri-delete-bin-6-line"></i>
-      </button>
+  <div class="router" @click="editNote">
+    <div class="note-widget" :style="widgetColor">
+      <h2 class="title">{{ note.title.substring(0, 15) }}</h2>
+      <p>{{ note.content }}</p>
+      <div class="wrap">
+        <div class="date">{{ formatDate(note.updatedDate) }}</div>
+        <button :style="widgetColor" @click.stop="deleteNote(note.noteId)">
+          <i class="ri-delete-bin-6-line"></i>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -15,6 +17,7 @@
 import { computed } from "@vue/runtime-core";
 import { colors } from "../config.js";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 export default {
   props: {
@@ -22,9 +25,11 @@ export default {
       type: Object,
     },
   },
-  setup() {
+  setup(props) {
+    const router = useRouter();
     const store = useStore();
     const colorList = colors;
+
     const formatDate = dateString => {
       return new Date(dateString).toLocaleDateString();
     };
@@ -39,12 +44,16 @@ export default {
     });
     const deleteNote = id => {
       store.dispatch("deleteNoteById", id);
-      console.log("deleteNoteById");
+    };
+
+    const editNote = () => {
+      router.push(`/note-component-page/${props.note.noteId}`);
     };
     return {
       widgetColor,
       formatDate,
       deleteNote,
+      editNote,
     };
   },
 };
@@ -69,19 +78,22 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.note-widget:hover {
-  transform: scale(1.05);
-  cursor: pointer;
+  transition: 0.5s;
 }
 button:hover {
   cursor: pointer;
 }
-
 .note-widget > p {
   width: 100%;
   height: 60%;
   overflow: hidden;
+}
+.note-widget:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.router {
+  text-decoration: none;
 }
 </style>

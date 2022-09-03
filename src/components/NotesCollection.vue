@@ -12,7 +12,6 @@
 <script>
 import SingleNote from "../components/SingleNote.vue";
 import NotesLoader from "../components/NotesLoader.vue";
-
 export default {
   components: {
     SingleNote,
@@ -51,13 +50,11 @@ export default {
   justify-content: space-evenly;
   margin-bottom: 100px;
 }
-
 .loader {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
 @media (min-width: 600px) {
   .note-list {
     padding: 2rem;

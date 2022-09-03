@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="submitForm">
+    <div>
       <label>Username:</label><br />
       <input v-model="username" required />
       <br />
@@ -17,19 +17,24 @@
         required
       />
       <br />
-      <button class="btn" type="submit">Sign Up</button>
 
+      <button
+        v-bind:disabled="!isDisabled"
+        @click="signUpUser"
+        class="btn"
+        type="submit"
+      >
+        Sign Up
+      </button>
       <p>
         Already have an account?
         <router-link to="/login">Login</router-link>
       </p>
-    </form>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "Signup",
   data() {
@@ -37,7 +42,6 @@ export default {
       username: "",
       email: "",
       password: "",
-      confirmPassword: "",
     };
   },
 
@@ -49,30 +53,30 @@ export default {
         return false;
       }
     },
+    isDisabled() {
+      return this.password.length > 3 && this.password.length < 10;
+    },
   },
 
   methods: {
-    async submitForm() {
-      try {
-        let result = await axios.post(
-          `https://ccsanotes-api.azurewebsites.net/users/byUser`,
-          {
-            username: this.username,
-            email: this.email,
-            password: this.password,
-          }
-        );
-        return result;
-      } catch (error) {
-        console.log(error);
-      }
+    signUpUser() {
+      this.$store.dispatch("signUp", {
+        username: this.username,
+        email: this.email,
+        password: this.password,
+      });
+      this.signUpRoute();
+      console.log(this.username, this.email, "signUp");
+    },
+    signUpRoute() {
+      this.$router.push({ path: "/note-list" });
     },
   },
 };
 </script>
 
 <style scoped>
-form {
+div {
   max-width: 600px;
   margin: 100px auto;
   background-color: #e4fff3;
@@ -85,7 +89,7 @@ label {
   margin: 5px;
   display: inline-block;
   color: #aaa;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 input {
