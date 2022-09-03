@@ -42,6 +42,11 @@ export default createStore({
                 context.commit("deleteNote", id);
             });
         },
+        createNote(context) {
+            axios.post(`${BASE_URL}/Notes/create-note=`).then(() => {
+                context.commit("addNote");
+            });
+        },
     },
     modules: {},
 });

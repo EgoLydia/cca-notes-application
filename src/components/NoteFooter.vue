@@ -3,7 +3,7 @@
     <a class="separator" href="#"
       ><img src="../assets/icons8-medium-icons-66.png" alt="tile"
     /></a>
-    <router-link to="/AddNotePage" class="separator" href="#">
+    <router-link to="/addNotePage" class="separator" href="#">
       <img src="../assets/icons8-plus-66.png" alt="add-note-button" />
     </router-link>
     <a class="separator" href="#"
