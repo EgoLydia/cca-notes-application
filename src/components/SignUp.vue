@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="signUp">
+    <div>
       <label>Username:</label><br />
       <input v-model="username" required />
       <br />
@@ -19,8 +19,8 @@
       <br />
 
       <button
-        @click="signUpRoute()"
         v-bind:disabled="!isDisabled"
+        @click="signUpUser"
         class="btn"
         type="submit"
       >
@@ -30,13 +30,11 @@
         Already have an account?
         <router-link to="/login">Login</router-link>
       </p>
-    </form>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "Signup",
   data() {
@@ -61,21 +59,14 @@ export default {
   },
 
   methods: {
-    async signUp() {
-      try {
-        let response = await axios.post(
-          "https://ccsanotes-api.azurewebsites.net/users",
-          {
-            username: this.username,
-            email: this.email,
-            password: this.password,
-          }
-        );
-        this.signUpRoute();
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
+    signUpUser() {
+      this.$store.dispatch("signUp", {
+        username: this.username,
+        email: this.email,
+        password: this.password,
+      });
+      this.signUpRoute();
+      console.log(this.username, this.email, "signUp");
     },
     signUpRoute() {
       this.$router.push({ path: "/note-list" });
@@ -85,7 +76,7 @@ export default {
 </script>
 
 <style scoped>
-form {
+div {
   max-width: 600px;
   margin: 100px auto;
   background-color: #e4fff3;

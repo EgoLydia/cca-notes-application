@@ -5,7 +5,7 @@
     <div>
       <p>{{ noteContent.content }}</p>
       <br /><br />
-      <button type="submit" class="btn">save</button>
+      <button type="submit" @click="goToNotes" class="btn">save</button>
     </div>
   </form>
 </template>
@@ -27,8 +27,10 @@ export default {
   mounted() {
     this.getData();
   },
-
   methods: {
+    goToNotes() {
+      this.$router.push({ path: "/note-list" });
+    },
     getData() {
       axios
         .get(`${BASE_URL}/Notes/by-id/${this.note}`)

@@ -1,31 +1,35 @@
 <template>
-  <router-link class="router" :to="`/note-component-page/${note.noteId}`">
+  <div class="router" @click="editNote">
     <div class="note-widget" :style="widgetColor">
       <h2 class="title">{{ note.title.substring(0, 15) }}</h2>
       <p>{{ note.content }}</p>
       <div class="wrap">
         <div class="date">{{ formatDate(note.updatedDate) }}</div>
-        <button :style="widgetColor" @click="deleteNote(note.noteId)">
+        <button :style="widgetColor" @click.stop="deleteNote(note.noteId)">
           <i class="ri-delete-bin-6-line"></i>
         </button>
       </div>
     </div>
-  </router-link>
+  </div>
 </template>
 
 <script>
 import { computed } from "@vue/runtime-core";
 import { colors } from "../config.js";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+
 export default {
   props: {
     note: {
       type: Object,
     },
   },
-  setup() {
+  setup(props) {
+    const router = useRouter();
     const store = useStore();
     const colorList = colors;
+
     const formatDate = dateString => {
       return new Date(dateString).toLocaleDateString();
     };
@@ -40,12 +44,16 @@ export default {
     });
     const deleteNote = id => {
       store.dispatch("deleteNoteById", id);
-      console.log("deleteNoteById");
+    };
+
+    const editNote = () => {
+      router.push(`/note-component-page/${props.note.noteId}`);
     };
     return {
       widgetColor,
       formatDate,
       deleteNote,
+      editNote,
     };
   },
 };
