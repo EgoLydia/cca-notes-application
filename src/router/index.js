@@ -21,6 +21,13 @@ const routes = [
     name: "LoginPage",
     component: () => import("../views/LoginPage.vue"),
   },
+  {
+    path: "/note-component-page/:id",
+    name: "note-component-page",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/NoteComponentPage.vue"),
+    props: true,
+  },
 ];
 
 const router = createRouter({
