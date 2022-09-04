@@ -11,6 +11,10 @@ export default createStore({
       email: "",
       password: "",
     },
+    // currentNote: {
+    //   title: "",
+    //   content: "",
+    // },
   },
   getters: {
     getNoteById: state => id => {
@@ -29,6 +33,9 @@ export default createStore({
     },
     addNote(state, payload) {
       state.notes.push(payload);
+    },
+    addNewNote(state, payload) {
+      state.currentNote = payload;
     },
     deleteNote(state, id) {
       const indexOfItem = state.notes.findIndex(note => note.noteId === id);
@@ -63,6 +70,19 @@ export default createStore({
       axios.delete(`${BASE_URL}/Notes?id=` + id).then(() => {
         context.commit("deleteNote", id);
       });
+    },
+    createNote(context, payload) {
+      console.log("created");
+      axios
+        .post(`${BASE_URL}/Notes/create-note`, {
+          creatorUserId: payload.creatorUserId,
+          title: payload.title,
+          content: payload.content,
+        })
+        .then(() => {
+          context.commit("addNote", payload);
+        })
+        .catch(error => console.log(error));
     },
   },
   modules: {},

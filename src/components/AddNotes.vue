@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="createNote">
+  <form>
     <div class="note_details">
       <input
         class="title"
@@ -23,65 +23,35 @@
     </div>
 
     <div class="btnSave">
-      <button class="save_button">
-        <router-link to="/note-list" type="submit">Save Note</router-link>
-      </button>
+      <button class="save_button" @click.prevent="createNote">Save Note</button>
     </div>
   </form>
 </template>
 
 <script>
-import { useStore } from "vuex";
-import { ref } from "vue";
-
 export default {
-  setup() {
-    const store = useStore();
-    const noteData = ref({
-      creatorUserId: "27dd9087-f8de-4ae3-a301-af03013e294c",
-      title: "",
-      content: "",
-      groupName: 0,
-    });
-
-    const createNote = (noteData) => {
-      store.dispatch("createNote", noteData);
-      console.log("createNote");
-    };
+  name: "AddNotes",
+  data() {
     return {
-      createNote,
-      noteData,
+      noteData: {
+        creatorUserId: "f7a268ad-ab83-42dd-8599-aef400943033",
+        title: "",
+        content: "",
+        groupName: 0,
+      },
     };
   },
+
+  methods: {
+    createNote() {
+      this.$store.dispatch("createNote", this.noteData);
+      this.noteListRoute();
+    },
+    noteListRoute() {
+      this.$router.push({ path: "/note-list" });
+    },
+  },
 };
-
-// import axios from "axios";
-
-// export default {
-//   name: "AddNotes",
-//   data() {
-//     return {
-//       noteData: {
-//         creatorUserId: "27dd9087-f8de-4ae3-a301-af03013e294c",
-//         title: "",
-//         content: "",
-//         groupName: 0,
-//       },
-//     };
-//   },
-
-//   methods: {
-//     createNote() {
-//       axios
-//         .post(
-//           "https://ccsanotes-api.azurewebsites.net/Notes/create-note",
-//           this.noteData
-//         )
-//         .then((response) => console.log(response))
-//         .catch((error) => console.log(error));
-//     },
-//   },
-// };
 </script>
 
 <style scoped>
@@ -115,7 +85,7 @@ textarea {
   border-radius: 5px;
   font-size: 18px;
   background: #2f7254;
-
+  color: #ffffff;
   border: none;
 }
 .save_button:hover {
