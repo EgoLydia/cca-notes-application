@@ -24,9 +24,13 @@ const routes = [
   {
     path: "/note-component-page/:id",
     name: "note-component-page",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/NoteComponentPage.vue"),
+    component: () => import("../views/NoteComponentPage.vue"),
     props: true,
+  },
+  {
+    path: "/add-note",
+    name: "AddNotePage",
+    component: () => import("../views/AddNotePage.vue"),
   },
 ];
 
