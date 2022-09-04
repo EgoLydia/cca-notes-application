@@ -71,17 +71,15 @@ export default createStore({
         context.commit("deleteNote", id);
       });
     },
-    createNote(context, payload) {
+    async createNote(_, payload) {
       console.log("created");
-      axios
+      await axios
         .post(`${BASE_URL}/Notes/create-note`, {
           creatorUserId: payload.creatorUserId,
           title: payload.title,
           content: payload.content,
         })
-        .then(() => {
-          context.commit("addNote", payload);
-        })
+        .then(() => {})
         .catch(error => console.log(error));
     },
   },

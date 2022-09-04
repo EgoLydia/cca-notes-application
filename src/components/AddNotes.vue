@@ -43,8 +43,9 @@ export default {
   },
 
   methods: {
-    createNote() {
-      this.$store.dispatch("createNote", this.noteData);
+    async createNote() {
+      await this.$store.dispatch("createNote", this.noteData);
+      this.$store.dispatch("fetchNotes");
       this.noteListRoute();
     },
     noteListRoute() {
