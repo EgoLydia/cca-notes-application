@@ -23,7 +23,9 @@
     </div>
 
     <div class="btnSave">
-      <button class="save_button" @click.prevent="createNote">Save Note</button>
+      <button class="save_button" @click.prevent="createNote">
+        <router-link to="/note-list"> Save Note</router-link>
+      </button>
     </div>
   </form>
 </template>
@@ -46,10 +48,6 @@ export default {
     async createNote() {
       await this.$store.dispatch("createNote", this.noteData);
       this.$store.dispatch("fetchNotes");
-      this.noteListRoute();
-    },
-    noteListRoute() {
-      this.$router.push({ path: "/note-list" });
     },
   },
 };
